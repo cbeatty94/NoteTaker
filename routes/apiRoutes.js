@@ -1,5 +1,5 @@
 const fs = require('fs')
-const data = JSON.parse(fs.readFileSync("../db/db.json", "utf-8"))
+const data = JSON.parse(fs.readFileSync("./Develop/db/db.json", "utf-8"))
 
 module.exports = (app) => {
     app.get('/api/notes', (req, res) => res.json(data));
@@ -15,7 +15,7 @@ module.exports = (app) => {
         note.id = uniqueID;
         data.push(note);
 
-        fs.writeFileSync("../db/db.json", JSON.stringify(data), (err) => { 
+        fs.writeFileSync("./Develop/db/db.json", JSON.stringify(data), (err) => { 
             if (err) throw (err)
         })
 
