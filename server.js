@@ -5,7 +5,7 @@ const port = process.env.PORT || 3000
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use("/public", express.static("./public"));
+app.use(express.static(__dirname + "/public"));
 
 
 require('./routes/apiRoutes')(app)
